@@ -32,6 +32,21 @@ const program = {
     byModule: ''
   },
 
+  checkImageIntegrity: function (hdimg, originalimg) {
+    const self = this
+    let xhr = new window.XMLHttpRequest()
+    xhr.addEventListener('readystatechange', function () {
+      if (this.readyState === 4 && this.status === 200) {
+        self.imageLink = hdimg
+      } else {
+        self.imageLink = originalimg
+      }
+    })
+
+    xhr.open('GET', hdimg)
+    xhr.send()
+  },
+
   setImageLink: function (link) {
     this.imageLinkBeforeParse = link
 
@@ -40,12 +55,17 @@ const program = {
     } else {
       this.imageLink = (this.regexOriginalImage.test(link)) ? link.replace(this.regexOriginalImage, '') : link
     }
+
+    this.isImageLinkEqualToImageLinkBeforeParse = (this.imageLink === this.imageLinkBeforeParse)
+
+    this.checkImageIntegrity(this.imageLink, this.imageLinkBeforeParse)
   },
 
   foundVideo: false,
   foundImage: false,
   imageLink: false,
   imageLinkBeforeParse: false,
+  isImageLinkEqualToImageLinkBeforeParse: null,
 
   alertNotInInstagramPost: false,
   context: {
