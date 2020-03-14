@@ -1,6 +1,6 @@
 {
   "name": "instantgram",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "A bookmarklet for download photos in Instagram",
   "main": "src/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "dev:watch": "nodemon --watch dist/main.js --exec \"npm run build:release:dev\"",
     "dev:webpack": "webpack -w --env.dev",
     "build:webpack": "webpack",
-    "build:pages": "node \"src\\_langs\\metalsmith.js\"",
+    "build:pages": "node \"src/_langs/metalsmith.js\"",
     "build:bookmarklet": "node scripts/bookmarkletify.js",
     "build:bookmarklet:dev": "node scripts/bookmarkletify.js --dev",
     "build:release": "npm run build:bookmarklet && npm run build:pages",
@@ -30,7 +30,7 @@
     "bookmarkletify": "^1.0.0",
     "concurrently": "^3.6.1",
     "css-loader": "^0.28.11",
-    "handlebars": "^4.0.5",
+    "handlebars": "^4.7.3",
     "html-loader": "^0.5.5",
     "lodash-es": "^4.17.10",
     "metalsmith": "^2.1.0",
@@ -40,7 +40,7 @@
     "nodemon": "^1.18.3",
     "signale": "^1.2.1",
     "style-loader": "^0.21.0",
-    "webpack": "^4.16.3",
+    "webpack": "^4.42.0",
     "webpack-cli": "^3.1.0"
   },
   "dependencies": {
