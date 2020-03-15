@@ -86,6 +86,6 @@ if (program.regexHostname.test(program.hostname)) {
 
   if (program.context.hasMsg) window.alert(localize(program.context.msg))
   if (program.alertNotInInstagramPost && !program.foundVideo && !program.foundImage) window.alert(localize('index#program@alert_dontFound'))
-  update(program.VERSION)
+  // update(program.VERSION)
 }
 /* =====  End of Program  ======*/

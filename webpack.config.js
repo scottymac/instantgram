@@ -11,6 +11,10 @@ module.exports = function (env) {
       path: path.resolve(__dirname, 'dist'),
     },
     devtool: DEV ? 'eval' : false,
+    mode: "production",
+    optimization: {
+        minimize: true
+    },
     plugins: [
       new webpack.DefinePlugin({
         VERSION: JSON.stringify(pkg.version),
