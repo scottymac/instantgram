@@ -42,3 +42,5 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) for more information. :heart:
 
 
 [1]:http://theus.github.io/instantgram
+
+run build:bookmarklet && npm run build:pages

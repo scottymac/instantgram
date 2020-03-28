@@ -27,12 +27,11 @@ export default function searchImageOnScreen (program) {
               let foundOnGallery = false
 
               const $slider = getAllNodeParent(image).filter(item => item.style && item.style.transform && item.style.transform !== "")[0]
-              const $ul = $slider.querySelector('ul')
+              const $ul = $slider.closest("ul")
 
-              const transform = +$slider.style.transform.split('(')[1].replace('px)', '')
-              const indexSlider = transform / image.width
-              const indexOfActualImage = indexSlider < 0 ? indexSlider * -1 : indexSlider
-
+              // Currently impossible to tell if viewing first or last image
+              // Defaulting to first for now
+              const indexOfActualImage = ($ul.children.length > 3) ? 2 : 1
               const imageOnGalleryVisible = $ul.children[indexOfActualImage].querySelector('img')
 
               program.setImageLink(imageOnGalleryVisible.src)
